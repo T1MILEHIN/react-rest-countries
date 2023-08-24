@@ -1,8 +1,7 @@
 import { FcAutomotive } from "react-icons/fc";
 import { motion } from "framer-motion";
 // import { FaRegUserCircle,FaShoppingCart} from 'react-icons/fa';
-const COMMON_CLASS = "flex items-center gap-3 my-2"
-
+const COMMON_CLASS = "flex items-center gap-3 my-2";
 
 const countryVariant = {
     first: {
@@ -29,7 +28,7 @@ const childrenVariant = {
 
 export default function SearchCountryData({name, area, car, capital, coatOfArms, population, region, subregion, startOfWeek, flags}) {
     return (
-        <motion.div variants={countryVariant} initial="first" animate="last" className="p-2 h-fit md:h-auto  lg:p-3 shadow-md border-b-black border-b-2 border-2">
+        <motion.div variants={countryVariant} initial="first" animate="last" className="p-2 h-fit md:h-auto lg:p-3 shadow-md border-b-black border-b-2 border-2">
             <motion.div variants={childrenVariant} className="flex item-center justify-between gap-3">
                 <p className="font-semibold text-lg h-12 my-2">{name.official.toUpperCase()}</p>
                 <p className="font-semibold text-md text-right my-2">{area}km<sup>2</sup></p>

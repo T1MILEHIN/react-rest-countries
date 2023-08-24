@@ -79,7 +79,7 @@ const FetchData = () => {
                 </div>
             </form>
             {loadingSearch ? <Loader /> : error && <motion.p initial={{y:'-30px', opacity:0}} animate={{y:0, opacity:1}} className="font-extrabold text-center text-xl lg:text-4xl text-red-600">{error}</motion.p>}
-            <div className="min-h-[60vh] p-2 lg:p-10 grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <div className="min-h-[60vh] p-2 md:p-10 grid grid-cols-1 lg:grid-cols-3 gap-5">
                 {(!loadingSearch && !error) && searchCountry}
             </div>
             <hr className="my-5 border-black border-2" />
