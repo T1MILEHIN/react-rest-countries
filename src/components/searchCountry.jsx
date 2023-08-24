@@ -6,24 +6,24 @@ const COMMON_CLASS = "flex items-center gap-3 my-2"
 
 const countryVariant = {
     first: {
-        y: '60px',
+        y: '70px',
     },
     last: {
         y: 0,
         transition: {
-            type: 'spring', stiffness: 200, staggerChildren: 0.2, when: "beforeChildren"
+            type: 'spring', stiffness: 200, duration: 0.4, staggerChildren: 0.25, when: "beforeChildren"
         }
     }
 }
 
 const childrenVariant = {
     first: {
+        opacity: 0,
         x: '100px',
-        opacity: 0
     },
     last: {
+        opacity: 1,
         x: 0,
-        opacity: 1
     }
 }
 

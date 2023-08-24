@@ -70,7 +70,7 @@ const FetchData = () => {
     const countries = data.map((country, index)=> < CountryCard key={index} index={index} {...country}/>)
     const searchCountry = searchData.map((country, index)=> <SearchCountryData key={index} {...country}/>)
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <Nav />
             <form action="" onSubmit={findButton} >
                 <div className="px-2 lg:px-10 lg:pt-10 pt-2">

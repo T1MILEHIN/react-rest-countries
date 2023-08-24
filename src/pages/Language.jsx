@@ -39,7 +39,7 @@ export default function Language() {
     }
     const searchCountry = country.map((country, index)=> <SearchCountryData key={index} {...country}/>)
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <Nav />
             <form action="" onSubmit={findButton} >
                 <div className="px-2 lg:px-10 lg:pt-10 pt-2">
