@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { FaBars, FaXing } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navVariant = {

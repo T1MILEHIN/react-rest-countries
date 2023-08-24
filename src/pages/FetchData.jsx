@@ -75,7 +75,7 @@ const FetchData = () => {
             <form action="" onSubmit={findButton} >
                 <div className="px-2 lg:px-10 lg:pt-10 pt-2">
                     <input name="country_name" value={search} onChange={handleSearch} type="text" placeholder="Search Country" className="w-full lg:w-[500px] pl-2 font-bold mb-2 block border-2 border-black h-10"/>
-                    <motion.button whileTap={{scale: 0.9}} className="font-bold p-2 rounded-lg bg-blue-400">SEARCH</motion.button>
+                    <motion.button type="submit" whileTap={{scale: 0.9}} className="font-bold p-2 rounded-lg bg-blue-400">SEARCH</motion.button>
                 </div>
             </form>
             {loadingSearch ? <Loader /> : error && <motion.p initial={{y:'-30px', opacity:0}} animate={{y:0, opacity:1}} className="font-extrabold text-center text-xl lg:text-4xl text-red-600">{error}</motion.p>}
