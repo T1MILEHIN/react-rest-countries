@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion";
 import SearchCountryData from "../components/searchCountry"
-import Nav from "../components/Nav"
 import Loader from "../components/Loader";
 export default function Currency() {
     const [currency, setCurrency] = useState('')
@@ -39,7 +38,6 @@ export default function Currency() {
     const searchCountry = country.map((country, index)=> <SearchCountryData key={index} {...country}/>)
     return (
         <div className="overflow-x-hidden">
-            <Nav />
             <form action="" onSubmit={findButton} >
                 <div className="px-2 lg:px-10 lg:pt-10 pt-2">
                     <input name="country_name" value={currency} onChange={handleCurrency} type="text" placeholder="Search by Currency" className="w-full lg:w-[500px] pl-2 font-bold mb-2 block border-2 border-black h-10"/>

@@ -2,7 +2,6 @@ import { useState } from "react"
 import { motion } from "framer-motion";
 import SearchCountryData from "../components/searchCountry";
 import Loader from "../components/Loader";
-import Nav from "../components/Nav";
 
 export default function Language() {
     const [lang, setLang] = useState('')
@@ -40,7 +39,6 @@ export default function Language() {
     const searchCountry = country.map((country, index)=> <SearchCountryData key={index} {...country}/>)
     return (
         <div className="overflow-x-hidden">
-            <Nav />
             <form action="" onSubmit={findButton} >
                 <div className="px-2 lg:px-10 lg:pt-10 pt-2">
                     <input name="country_name" value={lang} onChange={handleLanguage} type="text" placeholder="Search by Language" className="w-full lg:w-[500px] pl-2 font-bold mb-2 block border-2 border-black h-10"/>

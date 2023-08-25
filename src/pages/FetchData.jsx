@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import CountryCard from "../components/CountryCard";
 import SearchCountryData from "../components/searchCountry";
 import Loader from "../components/Loader";
-import Nav from "../components/Nav";
 
 const api = 'https://restcountries.com/v3.1/all';
 const searchCountryEndPoint = `https://restcountries.com/v3.1/name/`
@@ -71,7 +70,6 @@ const FetchData = () => {
     const searchCountry = searchData.map((country, index)=> <SearchCountryData key={index} {...country}/>)
     return (
         <div className="overflow-x-hidden">
-            <Nav />
             <form action="" onSubmit={findButton} >
                 <div className="px-2 lg:px-10 lg:pt-10 pt-2">
                     <input name="country_name" value={search} onChange={handleSearch} type="text" placeholder="Search Country" className="w-full lg:w-[500px] pl-2 font-bold mb-2 block border-2 border-black h-10"/>
