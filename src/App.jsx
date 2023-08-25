@@ -10,7 +10,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: < Nav/>,
-    errorElement: <div className="min-h-screen flex justify-center items-center font-black text-4xl"><p>PAGE NOT FOUND</p></div>,
+    errorElement: <div className="min-h-screen flex justify-center items-center font-black text-4xl text-center"><p>PAGE NOT FOUND<br />😥</p></div>,
     children: [
       {
         index: true,
