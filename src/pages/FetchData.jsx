@@ -82,7 +82,7 @@ const FetchData = () => {
             </div>
             <hr className="my-5 border-black border-2" />
             <h1 className="text-center font-bold lg:text-3xl text-xl">List of all Countries</h1>
-            {loadingAll ? <Loader /> : <div className="p-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">{countries}</div> }
+            {loadingAll ? <Loader /> : <div className="p-2 md:p-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">{countries}</div> }
         </div>
     )
 }
