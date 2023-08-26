@@ -1,3 +1,4 @@
+import Greeting from "./components/Greeting";
 import Nav from "./components/Nav";
 import Each from "./components/Each";
 import ErrorElement from "./components/ErrorElement";
@@ -10,10 +11,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    path: "",
-    element: < Nav/>,
+    path: "/",
+    element: <Nav/>,
     errorElement: <ErrorElement />,
     children: [
+      {
+        path: "/",
+        element: <Greeting />,
+      },
       {
         path: ":filter",
         element: <FetchData />,

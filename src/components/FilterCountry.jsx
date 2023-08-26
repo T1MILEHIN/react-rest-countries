@@ -37,7 +37,7 @@ export default function FilterCountry() {
             {error && <motion.p initial={{y:'-30px', opacity:0}} animate={{y:0, opacity:1}} className="font-extrabold text-center text-xl lg:text-4xl text-red-600">{error}</motion.p>}
             <motion.p initial={{scale: 0.5}} animate={{scale: 1.1}} exit={{scale: 0.5}} className="text-center font-bold text-xl md-text-4xl">{ALL.length} countries</motion.p>
             <div className="p-2 md:p-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
-                {loadingAll ? <div className="border-2 border-black col-span-6"><Loader/></div> : ALL}
+                {loadingAll ? <div className="col-span-6"><Loader/></div> : ALL}
             </div>
         </>
     )
