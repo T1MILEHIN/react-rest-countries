@@ -81,7 +81,7 @@ const FetchData = () => {
                 </div>
             </form>
             {loadingSearch ? <Loader /> : error && <motion.p initial={{y:'-30px', opacity:0}} animate={{y:0, opacity:1}} className="font-extrabold text-center text-xl lg:text-4xl text-red-600">{error}</motion.p>}
-            <div className="min-h-[60vh] p-2 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="min-h-[70vh] md:min-h-[60vh] p-2 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-5">
                 {(!loadingSearch && !error) && searchCountry}
             </div>
             <hr className="my-5 border-black border-2" />
@@ -96,7 +96,7 @@ const FetchData = () => {
                     breakpoints: {
                         640 : { perPage: 4, perMove: 1, arrows: false, trimSpace: false, focus: 'center',},
                     },
-                }} className="duration-500 text-center flex items-center gap-2 md:gap-8 font-black text-xl md:text-2xl">
+                }} className="flex items-center gap-2 md:gap-7 font-black text-xl md:text-2xl">
                     <SplideSlide><motion.li whileTap={{scale: 0.9}} whileHover={{scale: 1.1}}><NavLink className={({isActive})=> isActive ? "text-red-600 border-red-600 border-b-4" : ""} to={"/all"}>ALL</NavLink></motion.li></SplideSlide>
                     {filterer.map((link, index)=> <SplideSlide><motion.li whileTap={{scale: 0.9}} whileHover={{scale: 1.1}} key={index}><NavLink className={({isActive})=> isActive ? "text-red-600 border-red-600 border-b-4" : ""} to={`/${link}`}>{link}</NavLink></motion.li></SplideSlide>)}
                 </Splide>
