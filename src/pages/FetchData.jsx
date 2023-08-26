@@ -87,7 +87,7 @@ const FetchData = () => {
             <hr className="my-5 border-black border-2" />
             <h1 className="text-center font-bold lg:text-3xl text-xl">List of all Countries</h1>
             {/* NAV TO FILTER ALL COUNTRIES */}
-            <nav className="my-2 w-fit mx-auto">
+            <nav className="my-4 md:my-5 w-fit">
                 <Splide options={{
                     pagination: false,
                     perPage: 4,
@@ -96,9 +96,9 @@ const FetchData = () => {
                     breakpoints: {
                         640 : { perPage: 4, perMove: 1, arrows: false, trimSpace: false, focus: 'center',},
                     },
-                }} className="duration-500 text-center flex items-center gap-2 md:gap-8 font-black text-md md:text-xl">
-                    <SplideSlide><motion.li whileTap={{scale: 0.9}} whileHover={{scale: 1.1}}><NavLink className={({isActive})=> isActive ? "text-red-600 border-red-600 border-b-2" : ""} to={"/all"}>ALL</NavLink></motion.li></SplideSlide>
-                    {filterer.map((link, index)=> <SplideSlide><motion.li whileTap={{scale: 0.9}} whileHover={{scale: 1.1}} key={index}><NavLink className={({isActive})=> isActive ? "text-red-600 border-red-600 border-b-2" : ""} to={`/${link}`}>{link}</NavLink></motion.li></SplideSlide>)}
+                }} className="duration-500 text-center flex items-center gap-2 md:gap-8 font-black text-xl md:text-2xl">
+                    <SplideSlide><motion.li whileTap={{scale: 0.9}} whileHover={{scale: 1.1}}><NavLink className={({isActive})=> isActive ? "text-red-600 border-red-600 border-b-4" : ""} to={"/all"}>ALL</NavLink></motion.li></SplideSlide>
+                    {filterer.map((link, index)=> <SplideSlide><motion.li whileTap={{scale: 0.9}} whileHover={{scale: 1.1}} key={index}><NavLink className={({isActive})=> isActive ? "text-red-600 border-red-600 border-b-4" : ""} to={`/${link}`}>{link}</NavLink></motion.li></SplideSlide>)}
                 </Splide>
             </nav>
             <Outlet />

@@ -48,7 +48,7 @@ const router = createBrowserRouter([
     element: <Each />,
   },
 ]);
-//population, name, image, area, region, official name, carside with a card icon, subregion, start of week
+
 function App() {
   return ( 
     <>
