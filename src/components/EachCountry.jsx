@@ -33,7 +33,7 @@ export default function EachCountry({area, car, name, flags, population, region,
                     <p className="font-semibold">{startOfWeek}</p>
                 </div>
                 <p className="flex items-center gap-2 font-bold"> <FcAutomotive size={30}/>{car.side}</p>
-                <Link to={`/`} className="inline-block mr-auto text-lg font-bold bg-blue-600 hover:bg-blue-400 p-2 rounded-lg duration-[200ms]">GO BACK</Link>
+                <Link to={`/all`} className="inline-block mr-auto text-lg font-bold bg-blue-600 hover:bg-blue-400 p-2 rounded-lg duration-[200ms]">GO BACK</Link>
             </div>
         </div>
     )

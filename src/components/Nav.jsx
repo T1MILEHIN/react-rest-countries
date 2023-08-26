@@ -37,16 +37,16 @@ export default function Nav() {
                 <AnimatePresence>
                     <motion.nav variants={navVariant} animate={toggle && "last"} className={`${toggle ? "flex" : "hidden"} duration-30 h-fit absolute flex-col left-0 right-0 top-10 bg-black bg-opacity-70 md:bg-transparent text-center md:static lg:p-10 p-2 md:flex md:flex-row justify-between items-center pt-2 text-black overflow-x-hidden`}>
                         <motion.p variants={linkVariant} whileHover={{scale: 1.1}} whileTap={{scale:0.9}} className="font-extrabold text-lg md:opacity-100">
-                            <NavLink className={({isActive})=> isActive ? "text-red-600" : "text-black"} to={"/"}>Search by Name</NavLink>
+                            <NavLink className={({isActive})=> isActive ? "text-red-600" : "text-black"} to={"all"}>Search by Name</NavLink>
                         </motion.p>
                         <motion.p variants={linkVariant} whileHover={{scale: 1.1}} whileTap={{scale:0.9}} className="font-extrabold text-lg md:opacity-100">
-                            <NavLink className={({isActive})=> isActive ? "text-red-600" : "text-black"} to={"/currency"}>Search by Currency</NavLink>
+                            <NavLink className={({isActive})=> isActive ? "text-red-600" : "text-black"} to={"currency"}>Search by Currency</NavLink>
                         </motion.p>
                         <motion.p variants={linkVariant} whileHover={{scale: 1.1}} whileTap={{scale:0.9}} className="font-extrabold text-lg md:opacity-100">
-                            <NavLink className={({isActive})=> isActive ? "text-red-600" : "text-black"} to={"/capital"}>Search by Capital</NavLink>
+                            <NavLink className={({isActive})=> isActive ? "text-red-600" : "text-black"} to={"capital"}>Search by Capital</NavLink>
                         </motion.p>
                         <motion.p variants={linkVariant} whileHover={{scale: 1.1}} whileTap={{scale:0.9}} className="font-extrabold text-lg md:opacity-100">
-                            <NavLink className={({isActive})=> isActive ? "text-red-600" : "text-black"} to={"/language"}>Search by Language</NavLink>
+                            <NavLink className={({isActive})=> isActive ? "text-red-600" : "text-black"} to={"language"}>Search by Language</NavLink>
                         </motion.p>
                     </motion.nav>
                 </AnimatePresence>

@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import CountryCard from "../components/CountryCard";
 import SearchCountryData from "../components/searchCountry";
 import Loader from "../components/Loader";
+import { Outlet, NavLink } from "react-router-dom";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 const api = 'https://restcountries.com/v3.1/all';
 const searchCountryEndPoint = `https://restcountries.com/v3.1/name/`
 
 const FetchData = () => {
     const [data, setData] = useState([])
-    const [loadingAll, setLoadingAll] = useState(false)
     const [loadingSearch, setLoadingSearch] = useState(false)
     const [search, setSearch] = useState('')
     const [searchData, setSearchData] = useState([])
@@ -27,7 +28,6 @@ const FetchData = () => {
             const jsondata = await response.json()
             setData(jsondata)
             setError(null);
-            setLoadingAll(false)
         } catch (error) {
             setError('An error occurred while fetching data.')
         }
@@ -46,7 +46,6 @@ const FetchData = () => {
                 setError('No internet connectivity.');
                 return;
             }
-            
             const data = await response.json()
             setSearchData(data)
             setError(null);
@@ -63,11 +62,16 @@ const FetchData = () => {
         fetchSearchedCountry(search)
     }
     useEffect(()=>{
-        setLoadingAll(true)
         fetchdata()
     }, [])
-    const countries = data.map((country, index)=> < CountryCard key={index} index={index} {...country}/>)
     const searchCountry = searchData.map((country, index)=> <SearchCountryData key={index} {...country}/>)
+    // MAPPED REGION 👇
+    const sortedCountries = data.map((country)=> (country.region)).filter((x)=> x).sort()
+    const uniqueStrings = sortedCountries.reduce((accumulator, currentValue) => {
+    accumulator[currentValue] = true;
+        return accumulator;
+    }, {});
+    const filterer = Object.keys(uniqueStrings);
     return (
         <div className="overflow-x-hidden">
             <form action="" onSubmit={findButton} >
@@ -77,12 +81,27 @@ const FetchData = () => {
                 </div>
             </form>
             {loadingSearch ? <Loader /> : error && <motion.p initial={{y:'-30px', opacity:0}} animate={{y:0, opacity:1}} className="font-extrabold text-center text-xl lg:text-4xl text-red-600">{error}</motion.p>}
-            <div className="min-h-[60vh] p-2 md:p-10 grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <div className="min-h-[60vh] p-2 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-5">
                 {(!loadingSearch && !error) && searchCountry}
             </div>
             <hr className="my-5 border-black border-2" />
             <h1 className="text-center font-bold lg:text-3xl text-xl">List of all Countries</h1>
-            {loadingAll ? <Loader /> : <div className="p-2 md:p-10 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">{countries}</div> }
+            {/* NAV TO FILTER ALL COUNTRIES */}
+            <nav className="my-2 w-fit mx-auto">
+                <Splide options={{
+                    pagination: false,
+                    perPage: 4,
+                    drag: 'free',
+                    start: 0,
+                    breakpoints: {
+                        640 : { perPage: 4, perMove: 1, arrows: false, trimSpace: false, focus: 'center',},
+                    },
+                }} className="duration-500 text-center flex items-center gap-2 md:gap-8 font-black text-md md:text-xl">
+                    <SplideSlide><motion.li whileTap={{scale: 0.9}} whileHover={{scale: 1.1}}><NavLink className={({isActive})=> isActive ? "text-red-600 border-red-600 border-b-2" : ""} to={"/all"}>ALL</NavLink></motion.li></SplideSlide>
+                    {filterer.map((link, index)=> <SplideSlide><motion.li whileTap={{scale: 0.9}} whileHover={{scale: 1.1}} key={index}><NavLink className={({isActive})=> isActive ? "text-red-600 border-red-600 border-b-2" : ""} to={`/${link}`}>{link}</NavLink></motion.li></SplideSlide>)}
+                </Splide>
+            </nav>
+            <Outlet />
         </div>
     )
 }

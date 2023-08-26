@@ -1,5 +1,7 @@
 import Nav from "./components/Nav";
 import Each from "./components/Each";
+import ErrorElement from "./components/ErrorElement";
+import FilterCountry from "./components/FilterCountry";
 import FetchData from "./pages/FetchData"
 import Currency from "./pages/Currency";
 import Capital from "./pages/Capital";
@@ -10,22 +12,28 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: < Nav/>,
-    errorElement: <div className="min-h-screen flex justify-center items-center font-black text-4xl text-center"><p>PAGE NOT FOUND<br />😥</p></div>,
+    errorElement: <ErrorElement />,
     children: [
       {
-        index: true,
-        element: <FetchData />
+        path: ":filter",
+        element: <FetchData />,
+        children: [
+          {
+            index: true,
+            element: <FilterCountry />,
+          }
+        ]
       },
       {
-        path: "/currency",
+        path: "currency",
         element: <Currency />
       },
       {
-        path: "/capital",
+        path: "capital",
         element: <Capital />
       },
       {
-        path: "/language",
+        path: "language",
         element: <Language />
       },
     ]
