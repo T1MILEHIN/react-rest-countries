@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Loader = () => {
   return (
-    <div className="min-h-screen grid place-content-center bg-white px-4 py-24">
+    <div className="min-h-screen grid place-content-center bg-white px-4 py-16">
       <BarLoader />
     </div>
   );

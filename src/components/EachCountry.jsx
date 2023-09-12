@@ -1,12 +1,16 @@
 import { FcAutomotive } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const COMMON_CLASS = "flex items-center gap-3"
 export default function EachCountry({area, car, name, flags, population, region, subregion, startOfWeek}){
     
     return (
         <div className="flex flex-wrap p-3 shadow-md border-b-black border-b-2">
-            <img src={flags.png} alt="" className="w-full object-contain "/>
+            <div className="w-full ">
+                <LazyLoadImage effect="blur" src={flags.png} alt="" className="w-full object-contain rounded-xl"/>
+            </div>
             <div>
                 <div className="flex item-center justify-between gap-3">
                     <p className="font-semibold text-2xl">{name.official.toUpperCase()}</p>

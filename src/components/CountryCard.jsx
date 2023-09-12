@@ -1,6 +1,7 @@
 import { FcAutomotive } from "react-icons/fc";
-
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const COMMON_CLASS = "flex items-center gap-3 my-2"
 export default function CountryCard({area, car, name, flags, population, region, subregion, startOfWeek}) {
@@ -10,7 +11,9 @@ export default function CountryCard({area, car, name, flags, population, region,
                 <p className="font-semibold text-lg h-12 my-2">{name.official.toUpperCase()}</p>
                 <p className="font-semibold text-md text-right my-2">{area}km<sup>2</sup></p>
             </div>
-            <img src={flags.png} alt="" className="w-full h-40 object-cover "/>
+            <div className="w-full rounded-xl" >
+                <LazyLoadImage src={flags.svg} alt="" className="w-full h-56 object-cover rounded-xl"/>
+            </div>
             <div className={`${COMMON_CLASS}`}>
                 <h1 className="text-md font-bold">NAME:</h1>
                 <p className="font-semibold">{name.common}</p>
